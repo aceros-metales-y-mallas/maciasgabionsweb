@@ -3,11 +3,26 @@
 
 FROM nginx:alpine
 
-# Copy website files to Nginx html directory
-COPY . /usr/share/nginx/html
+# Set working directory
+WORKDIR /usr/share/nginx/html
 
-# Copy custom Nginx configuration if needed
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Remove default nginx static assets
+RUN rm -rf ./*
+
+# Create directory structure
+RUN mkdir -p css js images
+
+# Copy website files to correct locations
+COPY index.html .
+COPY gavion-triple-torsion.html .
+COPY robots.txt .
+COPY sitemap.xml .
+COPY style.css css/style.css
+COPY main.js js/main.js
+COPY logo.png images/logo.png
+
+# Fix permissions so nginx can read the files
+RUN chmod -R 644 * && chmod 755 css js images
 
 # Expose port 80
 EXPOSE 80

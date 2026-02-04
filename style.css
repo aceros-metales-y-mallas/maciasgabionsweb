@@ -609,6 +609,10 @@ ul {
   box-shadow: var(--shadow-xl);
 }
 
+.product-card.clickable-card {
+  cursor: pointer;
+}
+
 .product-image {
   width: 100%;
   height: 250px;

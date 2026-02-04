@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+README*
+CONFIGURATION*
+IMPLEMENTATION*
+
+# Docker files (don't copy into image)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Deployment scripts
+deploy.sh
+*.sh
+
+# AWS/Cloud configs
+s3-bucket-policy.json
+
+# IDE/Editor
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
